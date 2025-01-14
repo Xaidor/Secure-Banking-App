@@ -1,0 +1,7 @@
+flask                    # Flask for backend framework
+flask-oauthlib           # For OAuth authentication (if not using Cognito)
+flask-sqlalchemy         # SQLAlchemy for ORM
+psycopg2-binary         # PostgreSQL adapter for SQLAlchemy
+python-dotenv           # For managing environment variables
+boto3                   # AWS SDK for Python (Cognito, RDS, S3, SNS, Glue, Lambda, etc.)
+requests                # For making HTTP requests (e.g., to third-party APIs)
