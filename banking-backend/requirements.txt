@@ -1,7 +1,8 @@
-flask                    # Flask for backend framework
-flask-oauthlib           # For OAuth authentication (if not using Cognito)
-flask-sqlalchemy         # SQLAlchemy for ORM
-psycopg2-binary         # PostgreSQL adapter for SQLAlchemy
-python-dotenv           # For managing environment variables
-boto3                   # AWS SDK for Python (Cognito, RDS, S3, SNS, Glue, Lambda, etc.)
-requests                # For making HTTP requests (e.g., to third-party APIs)
+flask==2.0.2                  # Flask for backend framework
+boto3==1.35.99                # AWS SDK for Python (Cognito, RDS, S3, SNS, Glue, Lambda, etc.)
+psycopg2-binary               # PostgreSQL adapter for python (pre-compiled)
+Flask-JWT-Extended==4.4.0
+requests                      # For making HTTP requests (e.g., to third-party APIs)
+flask-oauthlib                # For OAuth authentication (if not using Cognito). A Flask extension that provides pre-built tools for managing tokens and user authentication
+flask-sqlalchemy              # SQLAlchemy for ORM. Makes managing the database (e.g., storing and retrieving user accounts, transaction history) easier. Connects your Python application to a database.
+python-dotenv                 # For managing environment variables
