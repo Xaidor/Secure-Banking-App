@@ -35,6 +35,6 @@ resource "aws_cognito_identity_pool_roles_attachment" "identity_pool_roles" {
   identity_pool_id = aws_cognito_identity_pool.secure_banking_identity_pool.id
 
   roles = {
-    authenticated = var.fc-role #Flask Cognito role arn from the iam module
+    authenticated = var.authenticated_role_arn #Flask Cognito role arn from the iam module
   }
 }
