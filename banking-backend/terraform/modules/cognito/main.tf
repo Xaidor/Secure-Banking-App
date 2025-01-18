@@ -20,3 +20,21 @@ resource "aws_cognito_user_pool_client" "user_pool_client" {
   allowed_oauth_flows_user_pool_client = true                                          #Enables OAuth 2.0 capabilities for the app client, allowing it to handle user login via tokens
   callback_urls = ["http://localhost:5000/callback"]                                  #The redirect location after a successful user login.
 }
+
+resource "aws_cognito_identity_pool" "secure_banking_identity_pool" {
+  identity_pool_name               = "secure-banking-identity-pool"
+  allow_unauthenticated_identities = false
+
+  cognito_identity_providers {
+    client_id    = aws_cognito_user_pool_client.user_pool_client.id
+    provider_name = aws_cognito_user_pool.secure_banking_pool.endpoint
+  }
+}
+
+resource "aws_cognito_identity_pool_roles_attachment" "identity_pool_roles" {
+  identity_pool_id = aws_cognito_identity_pool.secure_banking_identity_pool.id
+
+  roles = {
+    authenticated = var.fc-role #Flask Cognito role arn from the iam module
+  }
+}
